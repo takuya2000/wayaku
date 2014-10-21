@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Post:</strong>
+  <%= @wayaku.post_id %>
+</p>
+
+<p>
+  <strong>Post type:</strong>
+  <%= @wayaku.post_type %>
+</p>
+
+<p>
+  <strong>Selected category:</strong>
+  <%= @wayaku.selected_category %>
+</p>
+
+<p>
+  <strong>Questionbody:</strong>
+  <%= @wayaku.questionBody %>
+</p>
+
+<p>
+  <strong>Answer of user:</strong>
+  <%= @wayaku.answer_of_user %>
+</p>
+
+<%= link_to 'Edit', edit_wayaku_path(@wayaku) %> |
+<%= link_to 'Back', wayakus_path %>

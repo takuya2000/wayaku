@@ -1,0 +1,33 @@
+<h1>Listing wayakus</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Post</th>
+      <th>Post type</th>
+      <th>Selected category</th>
+      <th>Questionbody</th>
+      <th>Answer of user</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @wayakus.each do |wayaku| %>
+      <tr>
+        <td><%= wayaku.post_id %></td>
+        <td><%= wayaku.post_type %></td>
+        <td><%= wayaku.selected_category %></td>
+        <td><%= wayaku.questionBody %></td>
+        <td><%= wayaku.answer_of_user %></td>
+        <td><%= link_to 'Show', wayaku %></td>
+        <td><%= link_to 'Edit', edit_wayaku_path(wayaku) %></td>
+        <td><%= link_to 'Destroy', wayaku, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Wayaku', new_wayaku_path %>
