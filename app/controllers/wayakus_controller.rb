@@ -1,12 +1,17 @@
  class WayakusController < ApplicationController
   before_action :set_wayaku, only: [:show, :edit, :update, :destroy]
-  before_action :restrict_access, except: [:index,:regist,:index]
+  #before_action :restrict_access, except: [:index,:regist,:index]
 
 
   # GET /wayakus
   # GET /wayakus.json
   def index
-    @wayakus = Wayaku.all
+    if params[:page]
+      @wayakus = Wayaku.page(params[:page]).per(5).order("created_at DESC")
+    else
+      @wayakus = Wayaku.all
+    end
+
   end
 
   # GET /wayakus/1
@@ -28,7 +33,7 @@
     if @reg.save
       render json: @reg
     else
-      render josn: @reg.errors
+      render json: @reg.errors
     end
   end
 
